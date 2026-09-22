@@ -265,6 +265,9 @@
   .dk button{appearance:none;width:26px;height:26px;border-radius:6px;border:1px solid var(--line);background:var(--panel-2);color:var(--text);font-family:var(--mono);font-size:15px;line-height:1;cursor:pointer;padding:0;}
   .dk button:hover{border-color:var(--red-soft);color:var(--red-soft);}
   .dk button:focus-visible{outline:2px solid var(--red-soft);outline-offset:2px;}
+  .dk.mode button{width:auto;padding:0 10px;font-size:12px;letter-spacing:.06em;font-weight:600;}
+  .dk.mode button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff;}
+  .dk.mode button[aria-pressed="true"]:hover{color:#fff;}
   /* concept card */
   .tri-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px 16px;}
   .tri-intro{max-width:75ch;color:var(--muted);font-size:15px;margin:0 0 18px;}
@@ -793,6 +796,7 @@
         </div>
 
         <div class="deck" role="group" aria-label="Quick controls">
+          <div class="dk mode" role="group" aria-label="Exposure mode"><span class="dk-k">Mode</span><button type="button" id="qModeAv" aria-pressed="false">Av</button><button type="button" id="qModeM" aria-pressed="true">Manual</button></div>
           <div class="dk"><span class="dk-k">f/</span><button type="button" id="qApM" aria-label="Open aperture one stop">−</button><b id="qApV">1.8</b><button type="button" id="qApP" aria-label="Close aperture one stop">+</button></div>
           <div class="dk"><span class="dk-k">Shutter</span><button type="button" id="qShM" aria-label="Slower shutter">−</button><b id="qShV">1/250</b><button type="button" id="qShP" aria-label="Faster shutter">+</button></div>
                     <div class="dk"><span class="dk-k">Focus</span><button type="button" id="qFoM" aria-label="Focus closer">−</button><b id="qFoV">3.0 m</b><button type="button" id="qFoP" aria-label="Focus farther">+</button></div>
@@ -1325,6 +1329,8 @@
     els.apRing.querySelectorAll("button").forEach(function(b,i){ b.setAttribute("aria-pressed", STOPS[i]===st.N ? "true":"false"); });
     els.isoSeg.querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-pressed", +b.textContent===st.iso ? "true":"false"); });
     els.modeSeg.querySelectorAll("button").forEach(function(b,i){ b.setAttribute("aria-pressed", (i===0)===st.avAuto ? "true":"false"); });
+    $("qModeAv").setAttribute("aria-pressed", st.avAuto ? "true":"false");
+    $("qModeM").setAttribute("aria-pressed", st.avAuto ? "false":"true");
     els.evSlide.value = Math.round(st.comp*3)+6;
     els.focusSlide.value = sliderFromFocus(st.focus);
     els.focusVal.textContent = fmtDist(st.focus);
@@ -1506,7 +1512,9 @@
   // ---------- init ----------
   buildLed();
   els.evSlide.value=6;
-  update();
+  $("qModeAv").addEventListener("click",function(){ setMode(true); });
+  $("qModeM").addEventListener("click",function(){ setMode(false); });
+  setMode(false); // default: Manual, shutter seeded from the meter
 })();
 
 // ---------- Concept card: the exposure triangle (standalone) ----------
