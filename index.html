@@ -293,6 +293,47 @@
   footer{margin-top:60px;border-top:1px solid var(--line);padding-top:18px;color:var(--faint);font-size:13px;width:100%;max-width:none;text-wrap:pretty;}
   footer p{margin:0 0 8px;}
 
+  /* ---------- develop ---------- */
+  .dev-title{
+    font-family:var(--display);font-weight:400;font-size:clamp(30px,5vw,48px);line-height:1.02;
+    margin:0 0 6px;letter-spacing:.01em;
+  }
+  .dev-title .stripe{color:var(--red);}
+  .dev-sub{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 22px;}
+  .dev-intro{color:var(--muted);margin:0 0 22px;text-wrap:pretty;}
+  .dev-intro strong{color:var(--text);font-weight:500;}
+  .dev-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,1fr);gap:18px;align-items:start;margin-bottom:26px;}
+  @media (max-width:840px){.dev-grid{grid-template-columns:1fr;}}
+  .dev-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  .dev-card h3{font-family:var(--mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600;}
+  .dev-card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;line-height:1.55;}
+  .dev-card li{margin-bottom:6px;}
+  .dev-card li b{color:var(--text);font-weight:500;}
+  table.tt{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px;}
+  table.tt th,table.tt td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);}
+  table.tt th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600;}
+  table.tt td b{color:var(--text);font-weight:600;}
+  table.tt tr.hi td{background:rgba(216,57,46,.08);}
+  table.tt td .n{color:var(--green);}
+  .tt-note{font-size:12.5px;color:var(--faint);margin:10px 2px 0;line-height:1.5;}
+  .dev-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0;padding:0;list-style:none;counter-reset:dstep;}
+  @media (max-width:760px){.dev-steps{grid-template-columns:1fr;}}
+  .dev-steps li{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 14px;font-size:14px;color:var(--muted);line-height:1.5;}
+  .dev-steps li::before{counter-increment:dstep;content:counter(dstep);flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--mono);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+  .dev-steps li h4{margin:0 0 4px;font-size:15px;font-weight:700;color:var(--text);}
+  .dev-steps li p{margin:0;}
+  .dev-steps li b{color:var(--text);font-weight:500;}
+  .dev-steps li .grn{color:var(--green);font-family:var(--mono);font-size:13px;}
+  .dev-steps li .redtxt{color:var(--red-soft);}
+  .dev-video{margin-top:26px;}
+  .dev-video .frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;border:1px solid #2c2c31;}
+  .dev-video .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .dev-video .cap{font-size:12.5px;color:var(--faint);margin:8px 2px 0;}
+  .dev-video .cap a{color:var(--red-soft);}
+  .dev-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .dev-links a{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--red-soft);text-decoration:none;border:1px dashed rgba(216,57,46,.5);border-radius:20px;padding:5px 12px;}
+  .dev-links a:hover{border-color:var(--red-soft);background:rgba(216,57,46,.08);}
+
   /* ---------- resources: videos + manual ---------- */
   .vids{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   @media (max-width:900px){.vids{grid-template-columns:1fr 1fr;}}
@@ -1033,6 +1074,64 @@
         <div class="gitem"><div class="num dot2">88</div><div><h4>Red LED readout</h4><p>Seven-segment digits along the bottom of the finder show shutter speed and f-number — exactly like the readout under the simulator. Whole seconds carry a ″ mark beside the number (4″ = 4 seconds; a plain 4 = 1/4 sec). When the meter runs out of shutter, the speed <b>flashes at its limit</b>: a blinking 1000 means too bright for your f-stop, a blinking 30s means too dark. <b class="redtxt">M</b> means the lens is off the green A — you're setting aperture by hand and the camera is only advising.</p></div></div>
         <div class="gitem"><div class="num dot2">…</div><div><h4>The small stuff</h4><p>A lever by the eyepiece closes a blind for self-timer shots (stray light through the eyepiece fools the meter). The <b>exposure memory switch</b> locks a reading while you recompose. There's even a multiple-exposure lever for double exposures. Fun later; ignorable now.</p></div></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= DEVELOP ================= -->
+  <section id="develop">
+    <h1 class="dev-title"><span class="stripe">Develop</span></h1>
+    <p class="dev-sub">How to develop your film</p>
+    <p class="dev-intro">Once the roll is rewound, you can process it at home in the kitchen sink with the <strong>CineStill JOBO Mono 35mm starter kit</strong>. Its <strong>Df96 “Developer&amp;Fix” monobath</strong> is one bottle that develops and fixes in a single step, so there's no stop bath, no separate fixer, and no timing three baths. You need total darkness for about two minutes to get the film onto the reel. After that, everything happens in daylight. Times and temperatures below come straight from CineStill's Df96 instruction sheet.</p>
+
+    <div class="dev-grid">
+      <div class="dev-card">
+        <h3>Time by temperature · native ISO</h3>
+        <table class="tt">
+          <thead><tr><th>Df96 temp</th><th>Agitation</th><th>Time</th></tr></thead>
+          <tbody>
+            <tr><td><b>80°F</b> · 27°C</td><td>Constant</td><td><b>3 min</b></td></tr>
+            <tr class="hi"><td><b>75°F</b> · 24°C</td><td>Intermittent <span class="n">← start here</span></td><td><b>4 min</b></td></tr>
+            <tr><td><b>70°F</b> · 21°C</td><td>Minimal</td><td><b>6 min</b></td></tr>
+          </tbody>
+        </table>
+        <p class="tt-note"><b>Constant:</b> smooth inversions the whole time, changing direction. <b>Intermittent:</b> 30 s constant, then 10 s every minute. <b>Minimal:</b> 10 s gentle, then 5 s every minute. Never let the tank sit still for more than a minute. Temperature tolerance is ±2°F (1°C). Times are minimums: going longer finishes fixing and does not change development.</p>
+      </div>
+      <div class="dev-card">
+        <h3>What's in the kit</h3>
+        <ul>
+          <li><b>JOBO 1510 tank</b> with one 1501 reel. Light-tight once the lid is on, so pouring happens in daylight.</li>
+          <li><b>Df96 monobath, 530 ml</b> ready to use. Good for 8+ rolls; pour it back in the bottle after each one.</li>
+          <li><b>Filter funnel</b> with a steel mesh, for pouring the used Df96 back without gunk.</li>
+        </ul>
+        <h3 style="margin-top:16px">Bring your own</h3>
+        <ul>
+          <li>A <b>totally dark</b> space (a changing bag, or a bathroom at night with towels under the door).</li>
+          <li><b>Scissors</b> and a <b>bottle opener</b> or church-key to crack the cassette.</li>
+          <li>A <b>thermometer</b> and a jug of warm water to bring the Df96 to temperature.</li>
+          <li>A <b>timer</b>, clips or clothes pegs, and a few drops of wetting agent (optional).</li>
+        </ul>
+      </div>
+    </div>
+
+    <ol class="dev-steps">
+      <li><div><h4>Warm the chemistry</h4><p>Stand the Df96 bottle in a jug of warm water until it reads <b>75°F / 24°C</b>. Pick your row in the table and set the timer for that time. Warmer is faster and pushes the film. Cooler is slower and pulls it.</p></div></li>
+      <li><div><h4>Go dark and load the reel</h4><p>Lights off, or hands in the changing bag. Pop the cassette cap with the opener, trim the leader square, and feed the film into the reel's entry. <b>Walk the two halves of the reel back and forth</b> to ratchet the film on. Snip the spool free, drop the reel in the tank, seal the lid. <span class="grn">Lights back on.</span></p></div></li>
+      <li><div><h4>Pour and start the clock</h4><p>Pour Df96 in through the lid's light-trap until the reel is covered, tap the tank on the counter to knock loose bubbles, and start the timer.</p></div></li>
+      <li><div><h4>Agitate as the table says</h4><p>For the 4-minute row: <b>30 seconds</b> of steady inversions, then <b>10 seconds every minute</b>. Rap the tank after each cycle. Agitation slows development and speeds fixing, so more of it is safe. <span class="redtxt">Letting the tank sit still is not.</span></p></div></li>
+      <li><div><h4>Pour back and check</h4><p>Through the funnel, back into the bottle. Crack the lid and look at the film edge: it should be <b>clear, not milky</b>. Milky means unfixed. Pour the Df96 back in for another minute or two. Extra time never hurts.</p></div></li>
+      <li><div><h4>Wash</h4><p>Fill the tank with water within 10°F of the chemistry. Invert <b>5 times</b>, dump. Refill, invert <b>10 times</b>, dump. Refill, invert <b>20 times</b>, dump. One last rinse, ideally distilled water with a couple of drops of wetting agent so it dries spot-free.</p></div></li>
+      <li><div><h4>Hang to dry</h4><p>Clip the strip up somewhere dust-free with a weight on the bottom. Squeegee gently with two wet fingers once, or not at all. Give it an hour or two. Then cut into strips of six and sleeve them.</p></div></li>
+      <li><div><h4>Reuse the Df96</h4><p>Every roll you've run through the bottle adds <b>30 seconds</b> to the next one, up to 8 minutes. Use it within 2 months of opening and keep the bottle full and tightly capped. When it turns dark amber, it's done. Not sure? Snip a bit of leader and drop it in a cup of Df96 in daylight. Fresh chemistry turns it solid black.</p></div></li>
+    </ol>
+
+    <div class="dev-video">
+      <div class="frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/YAQ55Q2lNLU" title="CineStill Df96 Monobath - A Step By Step Guide" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <p class="cap">CineStill Df96 Monobath: A Step By Step Guide, by Mike Ladurner. <a href="https://www.youtube.com/watch?v=YAQ55Q2lNLU" target="_blank" rel="noopener">Open on YouTube</a>.</p>
+    </div>
+
+    <div class="dev-links">
+      <a href="https://cinestillfilm.com/products/jobo-mono-35mm-starter-kit-jobo-1510-tank-film-reel-funnel-df96-bwxx" target="_blank" rel="noopener">The kit at CineStill ↗</a>
+      <a href="https://cdn.shopify.com/s/files/1/0339/5113/files/DF96_18OZ_instructions_Complete.pdf" target="_blank" rel="noopener">Df96 instruction sheet (PDF) ↗</a>
     </div>
   </section>
 
