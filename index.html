@@ -302,8 +302,7 @@
   .dev-sub{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 22px;}
   .dev-intro{color:var(--muted);margin:0 0 22px;text-wrap:pretty;}
   .dev-intro strong{color:var(--text);font-weight:500;}
-  .dev-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,1fr);gap:18px;align-items:start;margin-bottom:26px;}
-  @media (max-width:840px){.dev-grid{grid-template-columns:1fr;}}
+  .dev-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:26px;}
   .dev-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
   .dev-card h3{font-family:var(--mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600;}
   .dev-card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;line-height:1.55;}
@@ -325,6 +324,24 @@
   .dev-steps li b{color:var(--text);font-weight:500;}
   .dev-steps li .grn{color:var(--green);font-family:var(--mono);font-size:13px;}
   .dev-steps li .redtxt{color:var(--red-soft);}
+  /* dark bag illustrated guide */
+  .bag-head{margin:30px 0 6px;font-family:var(--display);font-weight:400;font-size:clamp(19px,3vw,25px);letter-spacing:.01em;}
+  .bag-lede{color:var(--muted);margin:0 0 16px;text-wrap:pretty;}
+  .bag-lede b{color:var(--text);font-weight:500;}
+  .bag{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px;}
+  @media (max-width:980px){.bag{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.bag{grid-template-columns:1fr;}}
+  .bag-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;}
+  .bag-card svg{display:block;width:100%;height:auto;background:var(--inset);border-bottom:1px solid var(--line);}
+  .bag-card .txt{padding:12px 14px 14px;}
+  .bag-card .txt .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--mono);font-weight:600;font-size:12.5px;margin-right:8px;vertical-align:middle;}
+  .bag-card h4{display:inline;margin:0;font-size:15px;font-weight:700;vertical-align:middle;}
+  .bag-card p{margin:8px 0 0;font-size:13.5px;color:var(--muted);line-height:1.5;}
+  .bag-card p b{color:var(--text);font-weight:500;}
+  .bag-card p .grn{color:var(--green);}
+  .bag-card p .redtxt{color:var(--red-soft);}
+  .bag-tip{background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--muted);margin:-12px 0 26px;line-height:1.55;}
+  .bag-tip b{color:var(--amber);}
   .dev-video{margin-top:26px;}
   .dev-video .frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;border:1px solid #2c2c31;}
   .dev-video .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
@@ -1081,7 +1098,7 @@
   <section id="develop">
     <h1 class="dev-title"><span class="stripe">Develop</span></h1>
     <p class="dev-sub">How to develop your film</p>
-    <p class="dev-intro">Once the roll is rewound, you can process it at home in the kitchen sink with the <strong>CineStill JOBO Mono 35mm starter kit</strong>. Its <strong>Df96 “Developer&amp;Fix” monobath</strong> is one bottle that develops and fixes in a single step, so there's no stop bath, no separate fixer, and no timing three baths. You need total darkness for about two minutes to get the film onto the reel. After that, everything happens in daylight. Times and temperatures below come straight from CineStill's Df96 instruction sheet.</p>
+    <p class="dev-intro">You can develop your own roll at the kitchen sink with the <strong>CineStill JOBO Mono kit</strong>. Its <strong>Df96 monobath</strong> is one bottle that develops and fixes in a single step. The only tricky part is getting the film onto the reel, which has to happen in total darkness inside the dark bag. After that, everything happens with the lights on. Times below are from CineStill's Df96 instruction sheet.</p>
 
     <div class="dev-grid">
       <div class="dev-card">
@@ -1096,26 +1113,124 @@
         </table>
         <p class="tt-note"><b>Constant:</b> smooth inversions the whole time, changing direction. <b>Intermittent:</b> 30 s constant, then 10 s every minute. <b>Minimal:</b> 10 s gentle, then 5 s every minute. Never let the tank sit still for more than a minute. Temperature tolerance is ±2°F (1°C). Times are minimums: going longer finishes fixing and does not change development.</p>
       </div>
-      <div class="dev-card">
-        <h3>What's in the kit</h3>
-        <ul>
-          <li><b>JOBO 1510 tank</b> with one 1501 reel. Light-tight once the lid is on, so pouring happens in daylight.</li>
-          <li><b>Df96 monobath, 530 ml</b> ready to use. Good for 8+ rolls; pour it back in the bottle after each one.</li>
-          <li><b>Filter funnel</b> with a steel mesh, for pouring the used Df96 back without gunk.</li>
-        </ul>
-        <h3 style="margin-top:16px">Bring your own</h3>
-        <ul>
-          <li>A <b>totally dark</b> space (a changing bag, or a bathroom at night with towels under the door).</li>
-          <li><b>Scissors</b> and a <b>bottle opener</b> or church-key to crack the cassette.</li>
-          <li>A <b>thermometer</b> and a jug of warm water to bring the Df96 to temperature.</li>
-          <li>A <b>timer</b>, clips or clothes pegs, and a few drops of wetting agent (optional).</li>
-        </ul>
+
+    <h3 class="bag-head">The dark bag: opening the film and getting it on the reel</h3>
+    <p class="bag-lede">This is the one part you do <b>by feel</b>. Film is ruined the moment light touches it, so it all happens inside the zipped bag with your hands through the sleeves. It feels weird the first time. <b>Practise with a junk roll in daylight</b> until you can do it with your eyes shut, and the real thing will be easy.</p>
+
+    <div class="bag">
+      <!-- panel 1: pack the bag -->
+      <div class="bag-card">
+        <svg viewBox="0 0 300 200" role="img" aria-label="A dark changing bag, zipped shut, with the film cassette, bottle opener, scissors, reel and tank inside">
+          <rect x="30" y="50" width="240" height="120" rx="14" fill="#2a2a30" stroke="#4a4a52" stroke-width="2"/>
+          <path d="M40 60 L260 60" stroke="#141416" stroke-width="5" stroke-linecap="round"/>
+          <path d="M44 60 L256 60" stroke="#6f6c64" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="255" cy="60" r="5" fill="#c9c6bd"/>
+          <!-- sleeves -->
+          <path d="M30 120 Q0 130 4 160 L28 160" fill="#2a2a30" stroke="#4a4a52" stroke-width="2"/>
+          <path d="M270 120 Q300 130 296 160 L272 160" fill="#2a2a30" stroke="#4a4a52" stroke-width="2"/>
+          <!-- ghosted contents -->
+          <g opacity=".55">
+            <rect x="60" y="90" width="26" height="54" rx="4" fill="#d9a03c"/>
+            <rect x="64" y="100" width="18" height="30" fill="#3a2a14"/>
+            <rect x="100" y="112" width="40" height="8" rx="2" fill="#c9c6bd" transform="rotate(-25 120 116)"/>
+            <path d="M150 128 L166 96 M158 128 L174 96" stroke="#c9c6bd" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="163" cy="132" r="5" fill="none" stroke="#c9c6bd" stroke-width="3"/>
+            <circle cx="172" cy="132" r="5" fill="none" stroke="#c9c6bd" stroke-width="3"/>
+            <circle cx="210" cy="118" r="22" fill="none" stroke="#c9c6bd" stroke-width="5"/>
+            <circle cx="210" cy="118" r="8" fill="#141416" stroke="#c9c6bd" stroke-width="3"/>
+            <rect x="238" y="92" width="26" height="56" rx="6" fill="#1b1b1f" stroke="#c9c6bd" stroke-width="3"/>
+          </g>
+          <text x="150" y="188" fill="#6f6c64" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">double zip closed · arms through both sleeves</text>
+        </svg>
+        <div class="txt"><span class="n">1</span><h4>Pack the bag, lights on</h4>
+        <p>Put in: the <b>film</b>, a <b>bottle opener</b>, <b>scissors</b>, the <b>reel</b>, and the <b>tank with its lid</b>. Zip both zips shut. Put your arms in through the elastic sleeves all the way to the elbows. Now feel around and find each thing so you know where it is. <b>Nothing comes out until the lid is on the tank.</b></p></div>
+      </div>
+
+      <!-- panel 2: crack the cassette -->
+      <div class="bag-card">
+        <svg viewBox="0 0 300 200" role="img" aria-label="A bottle opener prying the flat end cap off a 35mm film cassette, with the film spool sliding out">
+          <rect x="70" y="40" width="70" height="130" rx="8" fill="#d9a03c"/>
+          <rect x="82" y="66" width="46" height="70" rx="3" fill="#3a2a14" opacity=".6"/>
+          <rect x="66" y="34" width="78" height="10" rx="3" fill="#a87a25"/>
+          <!-- popped cap -->
+          <rect x="60" y="168" width="90" height="10" rx="3" fill="#a87a25" transform="rotate(-18 105 173)"/>
+          <!-- opener -->
+          <path d="M150 178 L230 132" stroke="#c9c6bd" stroke-width="9" stroke-linecap="round"/>
+          <path d="M148 180 L164 168 L158 160 Z" fill="#9c9990"/>
+          <!-- spool sliding out -->
+          <g transform="translate(200 70)">
+            <rect x="0" y="-22" width="14" height="80" rx="4" fill="#3a3a41"/>
+            <path d="M14 -12 Q60 -14 70 24 L70 40 Q56 8 14 10 Z" fill="#5e4a2e"/>
+            <g fill="#141416"><rect x="24" y="-8" width="5" height="5"/><rect x="34" y="-8" width="5" height="5"/><rect x="44" y="-6" width="5" height="5"/><rect x="54" y="-2" width="5" height="5"/></g>
+          </g>
+          <path d="M172 100 L196 100" stroke="#e8564b" stroke-width="2" marker-end="url(#arr)"/>
+          <text x="150" y="192" fill="#6f6c64" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">pry off the FLAT end cap</text>
+        </svg>
+        <div class="txt"><span class="n">2</span><h4>Pop the cassette open</h4>
+        <p>Feel for the end of the cassette that's <b>flat</b>. The other end has a little knob sticking out; leave that one. Hook the bottle opener under the flat cap's lip and lever it up, like a bottle top. It takes a bit of force. Slide the spool of film out. It's a tight roll on a plastic core. <span class="redtxt">Hold it by the edges</span>, not the flat faces, so you don't leave fingerprints on your photos.</p></div>
+      </div>
+
+      <!-- panel 3: trim and feed -->
+      <div class="bag-card">
+        <svg viewBox="0 0 300 200" role="img" aria-label="Scissors trimming the film leader square, then the film tip being fed into the entry slot of the plastic reel">
+          <!-- film strip with curved leader being cut -->
+          <path d="M20 60 L120 60 L120 96 L20 96 Z" fill="#5e4a2e"/>
+          <path d="M120 60 L150 60 Q170 60 172 78 L150 96 L120 96 Z" fill="#5e4a2e" opacity=".45"/>
+          <g fill="#141416"><rect x="30" y="66" width="6" height="6"/><rect x="46" y="66" width="6" height="6"/><rect x="62" y="66" width="6" height="6"/><rect x="78" y="66" width="6" height="6"/><rect x="94" y="66" width="6" height="6"/><rect x="30" y="84" width="6" height="6"/><rect x="46" y="84" width="6" height="6"/><rect x="62" y="84" width="6" height="6"/><rect x="78" y="84" width="6" height="6"/><rect x="94" y="84" width="6" height="6"/></g>
+          <line x1="120" y1="50" x2="120" y2="106" stroke="#e8564b" stroke-width="2" stroke-dasharray="4 3"/>
+          <path d="M112 32 L132 52 M132 32 L112 52" stroke="#c9c6bd" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="108" cy="28" r="5" fill="none" stroke="#c9c6bd" stroke-width="3"/><circle cx="136" cy="28" r="5" fill="none" stroke="#c9c6bd" stroke-width="3"/>
+          <!-- reel -->
+          <g transform="translate(225 120)">
+            <circle r="52" fill="none" stroke="#c9c6bd" stroke-width="6"/>
+            <circle r="40" fill="none" stroke="#7c7c86" stroke-width="1.5" stroke-dasharray="3 4"/>
+            <circle r="28" fill="none" stroke="#7c7c86" stroke-width="1.5" stroke-dasharray="3 4"/>
+            <circle r="12" fill="#141416" stroke="#c9c6bd" stroke-width="4"/>
+            <!-- entry slot with ball bearings -->
+            <rect x="-62" y="-14" width="24" height="28" rx="3" fill="#141416" stroke="#e8564b" stroke-width="2"/>
+            <circle cx="-50" cy="-6" r="3" fill="#c9c6bd"/><circle cx="-50" cy="6" r="3" fill="#c9c6bd"/>
+          </g>
+          <!-- film going into slot -->
+          <path d="M60 110 L165 110" stroke="#5e4a2e" stroke-width="22"/>
+          <path d="M60 110 L165 110" stroke="#141416" stroke-width="2" stroke-dasharray="5 9"/>
+          <path d="M130 110 L162 110" stroke="#e8564b" stroke-width="2" marker-end="url(#arr)"/>
+          <text x="150" y="192" fill="#6f6c64" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">cut off the tongue · feed the slot</text>
+        </svg>
+        <div class="txt"><span class="n">3</span><h4>Cut the leader, feed the reel</h4>
+        <p>The start of the film has a skinny curved tongue. <b>Cut it off straight</b> so the end is square. Snip the corners off too, so it doesn't snag. Find the reel's entry: two little notches on the outer edge, with tiny balls just inside. <b>Push the square end in past the balls</b> until you feel it grab, about a hand's width.</p></div>
+      </div>
+
+      <!-- panel 4: walk the reel -->
+      <div class="bag-card">
+        <svg viewBox="0 0 300 200" role="img" aria-label="Two hands twisting the halves of the reel back and forth so the film winds on, then the loaded reel dropping into the tank with the lid going on">
+          <g transform="translate(95 92)">
+            <circle r="48" fill="none" stroke="#c9c6bd" stroke-width="6"/>
+            <circle r="36" fill="none" stroke="#5e4a2e" stroke-width="5"/>
+            <circle r="26" fill="none" stroke="#5e4a2e" stroke-width="5"/>
+            <circle r="12" fill="#141416" stroke="#c9c6bd" stroke-width="4"/>
+            <path d="M-62 -20 A66 66 0 0 1 -20 -62" fill="none" stroke="#e8564b" stroke-width="3" marker-end="url(#arr)"/>
+            <path d="M62 20 A66 66 0 0 1 20 62" fill="none" stroke="#e8564b" stroke-width="3" marker-end="url(#arr)"/>
+          </g>
+          <text x="95" y="166" fill="#a09c91" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">twist · untwist · repeat</text>
+          <!-- tank -->
+          <g transform="translate(232 62)">
+            <rect x="-30" y="20" width="60" height="96" rx="10" fill="#1b1b1f" stroke="#c9c6bd" stroke-width="3"/>
+            <rect x="-34" y="-2" width="68" height="20" rx="6" fill="#26262b" stroke="#c9c6bd" stroke-width="3"/>
+            <rect x="-8" y="-12" width="16" height="10" rx="3" fill="#c9c6bd"/>
+            <ellipse cx="0" cy="66" rx="20" ry="7" fill="none" stroke="#5e4a2e" stroke-width="4"/>
+            <path d="M0 -30 L0 -8" stroke="#5db26a" stroke-width="3" marker-end="url(#arr)"/>
+          </g>
+          <text x="232" y="192" fill="#5db26a" font-family="IBM Plex Mono,monospace" font-size="10.5" text-anchor="middle">lid on = light safe</text>
+        </svg>
+        <div class="txt"><span class="n">4</span><h4>Walk it on, then lid on</h4>
+        <p>Hold one half of the reel in each hand. <b>Twist them in opposite directions, then back.</b> Each twist pulls a bit more film onto the reel. Keep going until you feel the end. Cut the film off the plastic core. Drop the reel into the tank, and <b>screw the lid on tight</b>. <span class="grn">Done. Unzip and take everything out.</span></p></div>
       </div>
     </div>
+    <div class="bag-tip"><b>If it jams:</b> don't force it. Back the film out a little, make sure it isn't folded, and try again. Sweaty hands make the film stick to the reel, so if the bag gets warm, take a break. And if you lose track of what's what in there, stop, breathe, and feel around. Nothing bad happens while the bag stays zipped.</div>
 
     <ol class="dev-steps">
-      <li><div><h4>Warm the chemistry</h4><p>Stand the Df96 bottle in a jug of warm water until it reads <b>75°F / 24°C</b>. Pick your row in the table and set the timer for that time. Warmer is faster and pushes the film. Cooler is slower and pulls it.</p></div></li>
-      <li><div><h4>Go dark and load the reel</h4><p>Lights off, or hands in the changing bag. Pop the cassette cap with the opener, trim the leader square, and feed the film into the reel's entry. <b>Walk the two halves of the reel back and forth</b> to ratchet the film on. Snip the spool free, drop the reel in the tank, seal the lid. <span class="grn">Lights back on.</span></p></div></li>
+      <li><div><h4>Warm the Df96</h4><p>Stand the bottle in a jug of warm water until it reads <b>75°F / 24°C</b>. Pick your row in the table and set a timer for that time.</p></div></li>
+      <li><div><h4>Load the reel in the dark bag</h4><p>Follow the illustrated guide above. When the tank lid is on, the film is safe and you can take everything out of the bag. <span class="grn">Lights stay on from here.</span></p></div></li>
       <li><div><h4>Pour and start the clock</h4><p>Pour Df96 in through the lid's light-trap until the reel is covered, tap the tank on the counter to knock loose bubbles, and start the timer.</p></div></li>
       <li><div><h4>Agitate as the table says</h4><p>For the 4-minute row: <b>30 seconds</b> of steady inversions, then <b>10 seconds every minute</b>. Rap the tank after each cycle. Agitation slows development and speeds fixing, so more of it is safe. <span class="redtxt">Letting the tank sit still is not.</span></p></div></li>
       <li><div><h4>Pour back and check</h4><p>Through the funnel, back into the bottle. Crack the lid and look at the film edge: it should be <b>clear, not milky</b>. Milky means unfixed. Pour the Df96 back in for another minute or two. Extra time never hurts.</p></div></li>
