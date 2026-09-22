@@ -258,7 +258,22 @@
 
   .sceneWrap{position:absolute;inset:0;}
   /* quick deck under the finder */
-  .deck{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  /* desktop: the full control panel sits beside the finder, so the deck is hidden */
+  .deck{display:none;}
+  /* tablet (panel drops below the finder): two per row */
+  @media (max-width:840px){
+    .deck{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+    .dk{width:100%;box-sizing:border-box;padding:8px 12px;}
+    .dk-k{flex:1 1 auto;}
+    .dk b{flex:0 0 auto;min-width:64px;font-size:14px;}
+    .dk button{width:36px;height:36px;font-size:17px;}
+    .dk.mode button{flex:1 1 auto;padding:0 8px;}
+    .dk.mode .dk-k{flex:0 0 auto;margin-right:2px;}
+  }
+  /* phone: one per row, stacked */
+  @media (max-width:560px){
+    .deck{grid-template-columns:1fr;}
+  }
   .dk{display:flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:5px 9px;}
   .dk-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
   .dk b{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text);min-width:52px;text-align:center;font-variant-numeric:tabular-nums;}
