@@ -265,10 +265,6 @@
   .badge.soft{background:rgba(216,57,46,.13);color:var(--red-soft);border:1px solid rgba(216,57,46,.4);}
 
   /* ---------- distance map ---------- */
-  .mapcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 14px 8px;margin-top:16px;overflow-x:auto;}
-  .mapcard svg{display:block;width:100%;min-width:560px;height:auto;}
-  .map-caption{font-size:12.5px;color:var(--faint);padding:4px 4px 6px;min-width:560px;}
-  .map-caption i{font-style:normal;color:var(--green);}
 
   /* ---------- guide ---------- */
   .guide-intro{max-width:70ch;color:var(--muted);margin:0 0 26px;}
@@ -932,11 +928,6 @@
       <div class="read"><div class="k" id="k2">The house</div><div class="v"><span class="badge soft" id="b2">Soft</span></div><div class="s" id="s2"></div></div>
     </div>
 
-    <!-- distance map -->
-    <div class="mapcard">
-      <svg id="mapSvg" viewBox="0 0 900 132" role="img" aria-label="Top-down distance map showing camera, focus point, depth of field zone, dog and house"></svg>
-      <p class="map-caption">Bird's-eye view of the yard. The <i>green band</i> is everything that lands acceptably sharp on the film. <b style="color:var(--text)">H</b> marks the hyperfocal distance.</p>
-    </div>
   </section>
 
   <!-- ================= CONCEPT: EXPOSURE TRIANGLE ================= -->
@@ -1191,7 +1182,7 @@
     focusSlide:$("focusSlide"), focusVal:$("focusVal"),
     shRing:$("shRing"), shVal:$("shVal"), modeSeg:$("modeSeg"), isoSeg:$("isoSeg"),
     ledSvg:$("ledSvg"), meterNote:$("meterNote"),
-    coach:$("coach"), mapSvg:$("mapSvg"), stage:$("stage"), tabs:$("sceneTabs")
+    coach:$("coach"), stage:$("stage"), tabs:$("sceneTabs")
   };
 
   // ---------- focus slider mapping (log scale) ----------
@@ -1437,46 +1428,6 @@
     return txt;
   }
 
-  // ---------- distance map ----------
-  var MAPW=900, PADL=64, PADR=40;
-  var SUBJ_COLOR={dog:"#d9a05e", cat:"#bcbcc5", house:"#e7dbc4", shelf:"#c9a25a"};
-  function mx(d){
-    var lo=0.5, hi=300;
-    var dd = isFinite(d)?Math.max(lo,Math.min(d,hi)):hi;
-    return PADL + Math.log(dd/lo)/Math.log(hi/lo)*(MAPW-PADL-PADR);
-  }
-  function drawMap(dof){
-    var H = hyperfocal(st.N);
-    var xn=mx(dof.near), xf=mx(dof.far), xfoc=mx(st.focus), xH=mx(H);
-    var ticks=[1,2,5,10,20,50], t, s="";
-    s += '<line x1="'+PADL+'" y1="92" x2="'+(MAPW-PADR)+'" y2="92" stroke="#4a4a52" stroke-width="2"/>';
-    for(t=0;t<ticks.length;t++){
-      var x=mx(ticks[t]);
-      s += '<line x1="'+x+'" y1="88" x2="'+x+'" y2="96" stroke="#4a4a52" stroke-width="2"/>';
-      s += '<text x="'+x+'" y="114" fill="#8a877e" font-size="13" font-family="IBM Plex Mono,monospace" text-anchor="middle">'+ticks[t]+'m</text>';
-    }
-    s += '<text x="'+(MAPW-PADR)+'" y="114" fill="#8a877e" font-size="14" font-family="IBM Plex Mono,monospace" text-anchor="middle">∞</text>';
-    s += '<g transform="translate('+(PADL-46)+' 74)"><rect x="0" y="0" width="30" height="20" rx="3" fill="#3c3c42" stroke="#5a5a62"/><circle cx="15" cy="10" r="6.5" fill="#1a1a1d" stroke="#5a5a62"/><rect x="8" y="-5" width="10" height="5" rx="1.5" fill="#3c3c42"/></g>';
-    s += '<text x="'+(PADL-31)+'" y="114" fill="#8a877e" font-size="11" font-family="IBM Plex Mono,monospace" text-anchor="middle">YOU</text>';
-    s += '<rect x="'+xn+'" y="80" width="'+Math.max(2,xf-xn)+'" height="24" rx="3" fill="rgba(93,178,106,.28)" stroke="rgba(93,178,106,.75)" stroke-width="1.5"/>';
-    s += '<text x="'+xn+'" y="72" fill="#5db26a" font-size="12" font-family="IBM Plex Mono,monospace" text-anchor="middle">'+fmtDist(dof.near)+'</text>';
-    s += '<text x="'+Math.min(xf,MAPW-PADR)+'" y="72" fill="#5db26a" font-size="12" font-family="IBM Plex Mono,monospace" text-anchor="middle">'+fmtDist(dof.far)+'</text>';
-    s += '<path d="M'+xH+' 92 l -6 12 l 12 0 Z" fill="#d9a03c"/>';
-    s += '<text x="'+xH+'" y="128" fill="#d9a03c" font-size="12" font-weight="600" font-family="IBM Plex Mono,monospace" text-anchor="middle">H</text>';
-    s += '<line x1="'+xfoc+'" y1="46" x2="'+xfoc+'" y2="104" stroke="#e8564b" stroke-width="2.5"/>';
-    s += '<text x="'+xfoc+'" y="38" fill="#e8564b" font-size="12" font-weight="600" font-family="IBM Plex Mono,monospace" text-anchor="middle">FOCUS</text>';
-    SC().subjects.forEach(function(sub,i){
-      var x=mx(sub.d), col=SUBJ_COLOR[sub.label]||"#d9a05e", yLab=24-((i%2)?-0:0);
-      if(sub.label==="house"||sub.label==="shelf"){
-        s += '<rect x="'+(x-7)+'" y="85" width="14" height="14" rx="2" fill="'+col+'" stroke="#17171a" stroke-width="2"/>';
-      } else {
-        s += '<circle cx="'+x+'" cy="92" r="7" fill="'+col+'" stroke="#17171a" stroke-width="2"/>';
-      }
-      s += '<text x="'+x+'" y="'+yLab+'" fill="'+col+'" font-size="12" font-weight="600" font-family="IBM Plex Mono,monospace" text-anchor="middle">'+sub.label.toUpperCase()+'</text>';
-      s += '<line x1="'+x+'" y1="29" x2="'+x+'" y2="83" stroke="'+col+'" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>';
-    });
-    els.mapSvg.innerHTML = s;
-  }
 
   // ---------- master update ----------
   function update(){
@@ -1559,7 +1510,6 @@
                 : (Math.abs(m.offImage)>0.6 ? " The frame runs about "+stopsI+" stops "+(m.offImage>0?"bright":"dark")+" — your EV compensation doing exactly what you dialed."
                 : (m.slow ? " At "+shTxt+" you'll want steady hands or a fence post to lean on." : "")));
 
-    drawMap(dof);
   }
 
   // ---------- controls ----------
