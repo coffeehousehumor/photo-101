@@ -290,6 +290,31 @@
   footer{margin-top:60px;border-top:1px solid var(--line);padding-top:18px;color:var(--faint);font-size:13px;width:100%;max-width:none;text-wrap:pretty;}
   footer p{margin:0 0 8px;}
 
+  /* ---------- resources: videos + manual ---------- */
+  .vids{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:900px){.vids{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.vids{grid-template-columns:1fr;}}
+  .vid{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .vid .frame{position:relative;aspect-ratio:16/9;background:#000;}
+  .vid .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .vid .cap{padding:10px 12px 12px;}
+  .vid .cap h4{margin:0 0 3px;font-size:14px;font-weight:700;line-height:1.35;}
+  .vid .cap p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--faint);}
+  .vid .cap a{color:var(--red-soft);text-decoration:none;}
+  .vid .cap a:hover{text-decoration:underline;}
+  a.manual{
+    display:flex;align-items:center;gap:16px;margin-top:16px;text-decoration:none;color:var(--text);
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:12px;padding:16px 18px;
+    transition:border-color .12s,background .12s;
+  }
+  a.manual:hover{background:var(--panel-2);border-color:var(--red-soft);border-left-color:var(--red);}
+  a.manual:focus-visible{outline:2px solid var(--red-soft);outline-offset:2px;}
+  a.manual .ico{flex:0 0 auto;width:44px;height:44px;border-radius:10px;background:var(--inset);border:1px solid #2c2c31;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--red-soft);}
+  a.manual h4{margin:0 0 3px;font-size:15px;font-weight:700;}
+  a.manual p{margin:0;font-size:13px;color:var(--muted);}
+  a.manual .go{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--faint);white-space:nowrap;}
+  @media (max-width:600px){a.manual .go{display:none;}}
+
   .sceneWrap{position:absolute;inset:0;}
   /* quick deck under the finder */
   /* desktop: the full control panel sits beside the finder, so the deck is hidden */
@@ -1005,6 +1030,30 @@
         <div class="gitem"><div class="num dot2">…</div><div><h4>The small stuff</h4><p>A lever by the eyepiece closes a blind for self-timer shots (stray light through the eyepiece fools the meter). The <b>exposure memory switch</b> locks a reading while you recompose. There's even a multiple-exposure lever for double exposures. Fun later; ignorable now.</p></div></div>
       </div>
     </div>
+  </section>
+
+  <!-- ================= RESOURCES ================= -->
+  <section id="resources">
+    <div class="sec-head"><h2>Watch, then read the manual</h2><span class="tag">more on the A-1</span></div>
+    <div class="vids">
+      <div class="vid">
+        <div class="frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/44UISxmQywM" title="Canon A1 Film Camera Overview And User Guide" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="cap"><h4>Canon A1 Film Camera Overview and User Guide</h4><p>Phil UK Net · <a href="https://www.youtube.com/watch?v=44UISxmQywM" target="_blank" rel="noopener">open on YouTube</a></p></div>
+      </div>
+      <div class="vid">
+        <div class="frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/iGMB6Hq0jRI" title="Canon A-1: One of the best entry-level 35mm film cameras" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="cap"><h4>Canon A-1: One of the Best Entry-Level 35mm Film Cameras</h4><p>Captured by Sam · <a href="https://www.youtube.com/watch?v=iGMB6Hq0jRI" target="_blank" rel="noopener">open on YouTube</a></p></div>
+      </div>
+      <div class="vid">
+        <div class="frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xmQvmOBCA3c" title="Shooting a Budget 35mm Camera: Canon A-1 Review" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="cap"><h4>Shooting a Budget 35mm Camera: Canon A-1 Review</h4><p>Willem Verbeeck · <a href="https://www.youtube.com/watch?v=xmQvmOBCA3c" target="_blank" rel="noopener">open on YouTube</a></p></div>
+      </div>
+    </div>
+    <a class="manual" href="https://35mm-compact.com/pdf/canon-a1-en.pdf" target="_blank" rel="noopener">
+      <span class="ico" aria-hidden="true">PDF</span>
+      <span><h4>Canon A-1 instruction manual</h4><p>The full original English manual. Every control, every mode, every warning light.</p></span>
+      <span class="go">open ↗</span>
+    </a>
   </section>
 
   <footer>
