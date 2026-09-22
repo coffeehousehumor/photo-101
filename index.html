@@ -249,20 +249,6 @@
   .divider{height:1px;background:var(--line);margin-inline:-4px;}
 
   /* ---------- readouts ---------- */
-  .reads{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px;}
-  .read{
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
-  }
-  .read .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:5px;}
-  .read .v{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums;line-height:1.25;}
-  .read .s{font-size:12px;color:var(--muted);margin-top:3px;font-family:var(--mono);}
-  .badge{
-    display:inline-block;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;
-    padding:3px 9px;border-radius:20px;text-transform:uppercase;
-  }
-  .badge.sharp{background:rgba(93,178,106,.16);color:var(--green);border:1px solid rgba(93,178,106,.45);}
-  .badge.edge{background:rgba(217,160,60,.14);color:var(--amber);border:1px solid rgba(217,160,60,.4);}
-  .badge.soft{background:rgba(216,57,46,.13);color:var(--red-soft);border:1px solid rgba(216,57,46,.4);}
 
   /* ---------- distance map ---------- */
 
@@ -921,12 +907,6 @@
       </div>
     </div>
 
-    <!-- readouts -->
-    <div class="reads">
-      <div class="read"><div class="k" id="k0">The cat</div><div class="v"><span class="badge soft" id="b0">Soft</span></div><div class="s" id="s0"></div></div>
-      <div class="read"><div class="k" id="k1">The dog</div><div class="v"><span class="badge sharp" id="b1">Sharp</span></div><div class="s" id="s1"></div></div>
-      <div class="read"><div class="k" id="k2">The house</div><div class="v"><span class="badge soft" id="b2">Soft</span></div><div class="s" id="s2"></div></div>
-    </div>
 
   </section>
 
@@ -1391,13 +1371,6 @@
     els.stage.style.filter="none";
   }
 
-  // ---------- readouts ----------
-  function badge(el, sub, cocM){
-    var mm = cocM*1000;
-    if(mm<=0.03){ el.className="badge sharp"; el.textContent="Sharp"; sub.textContent="blur circle "+mm.toFixed(3)+" mm"; }
-    else if(mm<=0.075){ el.className="badge edge"; el.textContent="Almost"; sub.textContent="blur circle "+mm.toFixed(3)+" mm"; }
-    else { el.className="badge soft"; el.textContent="Soft"; sub.textContent="blur circle "+mm.toFixed(2)+" mm"; }
-  }
 
   var DESC=["tack sharp","a whisker soft","noticeably soft","melted into blur"];
   function coachLine(dof){
@@ -1461,10 +1434,8 @@
     $("qEvV").textContent = cf.stops.replace(" EV","");
     $("qIsoV").textContent = String(st.iso);
 
-    // subjects: labels, badges, focus buttons
+    // subjects: focus buttons
     sc.subjects.forEach(function(s,i){
-      $("k"+i).textContent = "The "+s.label;
-      badge($("b"+i), $("s"+i), coc(st.N,st.focus,s.d));
       $("btnF"+i).textContent = cap(s.label);
     });
 
